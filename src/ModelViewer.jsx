@@ -67,7 +67,7 @@ export default function ModelViewer({ color, lens }) {
       controls.update(); controls.saveState();
     };
     resetCamera.current = fitCamera;
-    new GLTFLoader().load('/models/Glasses.glb', (gltf) => {
+    new GLTFLoader().load(`${import.meta.env.BASE_URL}models/Glasses.glb`, (gltf) => {
       if (disposed) { release(gltf.scene); return; }
       model = gltf.scene;
       const frame = new THREE.MeshPhysicalMaterial({ color: currentSelection.current.color, roughness: 0.28, metalness: 0, clearcoat: 0.65, clearcoatRoughness: 0.2 });
